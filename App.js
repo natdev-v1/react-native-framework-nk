@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -20,15 +12,28 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import Config from "react-native-config";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import router from './src/navigation/index';
 
-const App: () => React$Node = () => {
+const Stack = createStackNavigator();
+
+const App = ()=> {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-       <Text>{Config.API_URL}</Text>
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+    <Stack.Navigator>
+    {Object.entries({
+      // Use the screens normally
+      ...router.commonScreens,
+      // Use some screens conditionally based on some condition
+      // ...(isLoggedIn ? userScreens : authScreens),
+    }).map(([name, component]) => (
+      <Stack.Screen name={name} component={component} />
+    ))
+    
+    }
+      </Stack.Navigator>
+      </NavigationContainer>
   );
 };
 
