@@ -28,7 +28,7 @@ const App = ()=> {
       // Use some screens conditionally based on some condition
       // ...(isLoggedIn ? userScreens : authScreens),
     }).map(([name, component]) => (
-      <Stack.Screen key={name} name={name} component={component} />
+      <Stack.Screen key={name} options={component?.screenOptions} name={name} component={component?.screen} />
     ))
     
     }
