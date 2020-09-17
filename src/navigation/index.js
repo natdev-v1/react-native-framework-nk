@@ -1,12 +1,10 @@
-import LouncherScreen from '../screens/LouncherScreen'
+import LouncherScreen from '../screens/LouncherScreen';
 const commonScreens = {
-    LouncherScreen:{screen:LouncherScreen,screenOptions:{headerShown: false}}
-  };
+  LouncherScreen: {screen: LouncherScreen, screenOptions: {headerShown: false}},
+};
 
-const aferAuth = {
-    
-  };
+const aferAuth = {};
 
 export default {
-    commonScreens
-}
+  commonScreens,
+};
